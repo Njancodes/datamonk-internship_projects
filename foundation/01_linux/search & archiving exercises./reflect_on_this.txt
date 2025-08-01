@@ -1,0 +1,12 @@
+1. I think the reason linux have different options for help is because each option caters to specific people. man shows detailed manual pages that is great for documentation. --help provides a quick information of the commands. help is well for bash built-in commands
+help is probably the correct choice if we are looking for instructions for bash built-in commands like cd, or echo.
+
+2. ls | grep ".txt" looks only at files in the current directory, that is not recursively. find . -name "*.txt" searches recursively through the directory tree and uses actual file metadata.
+I believe find is more powerful because of searching recursively, looking through the metadata etc whereas ls | grep needed two commands to function, that too, for simple, flat-directory filtering.
+
+3. If you remember the command you ran last week (for example: ssh) you can pipe the contents of history to grep with the pattern "ssh"
+history | grep "ssh" 
+
+4. Well, tar.gz holds the permissions and symlinks, therefore crucial for linux systems.
+Also, natively supported by most linux tools (tar, gzip), and this usually results in smaller files.
+There are plenty of security risks in extracting a archive or zip folder from an unknown source. One of them is a zip bomb, which is a zip file upon extraction causes large amount of data to flood the system which can disrupt the system. Another one is scripts or binaries that might run after extracting.
