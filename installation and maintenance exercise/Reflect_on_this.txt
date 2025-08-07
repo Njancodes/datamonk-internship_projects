@@ -1,0 +1,9 @@
+1. A developer would choose to install an application using Snap eventhough the application can be installed using the apt package manager. Snap packages often provide the latest applications that can work on any type of linux distributions without dependency conflicts. Snap receives automatic background updates and run in sandboxed environment, improving security and reducing the risk of affecting the rest of the system. Due to this sandboxing feature, snap applications can have shorter startup times. They could consume more disk space since each Snap package includes its own dependencies.
+
+2. ripgrep is much faster than grep, especially in large codebases. It is written in Rust and uses Rust's regex engine. rg searches recursively directories by default. It also respects .gitignore, which means the the rg wouldn't search through it. Also, provides syntax-highlighted output, line numbers and better default formatting. 
+
+3. You can use curl to upload data via an HTTP POST to an API, whereas wget can recursively download an entire website. The difference is curl is a data transfer tool, and wget is mostly used for downloading files.
+
+4. curl -s https://api.github.com/users/username/repos | jq -r '. [] | "
+\(.name): \(.language)"' is the command I would use to take a list of projects and their respective language.
+
