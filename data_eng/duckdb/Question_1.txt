@@ -1,0 +1,10 @@
+How the CSV approach changed your query logic ?
+
+All the data you need is already flattened into one table (customer–film–payment info together).
+
+All the data you need is aldready present in the csv file as one table. That means no joins are needed, however aggregrates can be tricky cause of duplicate values or even pre aggregated values.
+
+Also, the datatypes can be string even though the rows are numeric.
+
+So the shift would be typecasting, reviewing the data before aggregrating and DuckDB doesn’t let you SUM() inside a CASE in the same aggregation step, therefore needed a CTE (pair_totals).
+

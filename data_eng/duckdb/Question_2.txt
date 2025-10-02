@@ -1,0 +1,12 @@
+Benefits and limitations of working with CSVs in DuckDB
+
+Super lightweight
+Zero-ETL analysis (No need to load into a table first)
+Great for prototyping
+because CSVs are columns, duckdb is efficeient in columnar execution
+
+Limitations
+
+No schema enforcement: No foreign keys and such
+Numeric columns might get be read as strings and not numeric
+not transactional cause you cant insert or update the rows

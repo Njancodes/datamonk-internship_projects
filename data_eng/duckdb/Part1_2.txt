@@ -1,0 +1,12 @@
+
+Window and subquery challenge
+
+ SELECT * FROM (SELECT coy.country, cust.first_name || ' ' || cust.last_name AS customer_name,SUM(pay.amount), ROW_NUMBER() OVER(PARTITION BY coy.country ORDER BY SUM(pay.amount) DESC) AS rn
+FROM customer AS cust
+JOIN payment AS pay ON pay.customer_id == cust.customer_id
+JOIN address AS addr ON addr.address_id == cust.address_id
+JOIN city AS cy ON cy.city_id == addr.city_id
+JOIN country AS coy ON coy.country_id = cy.country_id
+GROUP BY cust.customer_id, coy.country, customer_name )
+AS x
+WHERE x.rn < 4;

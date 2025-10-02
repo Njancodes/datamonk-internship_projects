@@ -1,0 +1,23 @@
+Part 1
+
+Join challenge
+
+SELECT f.title,cat.name,cust.first_name || ' ' || cust.last_name AS customer_name, cy.city, coy.country,
+       COUNT(*) AS rental_count,
+       SUM(p.amount) AS total_paid,ren.rental_date
+FROM rental AS ren
+JOIN inventory AS iv ON iv.inventory_id = ren.inventory_id
+JOIN film AS f ON f.film_id = iv.film_id
+JOIN customer AS cust ON cust.customer_id = ren.customer_id
+JOIN payment AS p ON p.rental_id = ren.rental_id
+JOIN film_category AS fc ON fc.film_id = f.film_id
+JOIN category AS cat ON cat.category_id = fc.category_id
+JOIN staff AS stf ON stf.staff_id == ren.staff_id
+JOIN address AS addr ON addr.address_id == addr.address_id
+JOIN city AS cy ON cy.city_id == addr.city_id
+JOIN country AS coy ON coy.country_id == cy.country_id
+GROUP BY f.title, cat.name, customer_name, cy.city, coy.country, ren.rental_date;
+
+
+
+
