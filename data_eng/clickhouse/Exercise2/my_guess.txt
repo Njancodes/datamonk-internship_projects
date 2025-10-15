@@ -1,0 +1,3 @@
+After reading through the different types of CODECS like (Delta, DoubleDelta, Gorilla). For the datatype floats the best codec is GORILLA. This is becuase delta and doubledelta or even n delta encodes using the arithemetic difference of the numbers, which in a floats mostly will produce very small differences (In CPU temps and timestamps). These differences will be in floats, thus the decrease in memory is not significant, if we take the arithemtic difference.
+
+However, in Gorilla the difference is taken at the binary level using the XOR operation. This causes it to produce values that have lots of zeros (leading or trailing).The redundant zeros are removed and the middle chunk is stored. Thus, a massive decrease in need of memory for storing these datatypes.
